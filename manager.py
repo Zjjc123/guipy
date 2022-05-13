@@ -1,4 +1,6 @@
 import pygame
+
+
 class GUIManager:
     def __init__(self):
         self.components = []
@@ -9,7 +11,7 @@ class GUIManager:
     def update(self):
         mouse_pos = pygame.mouse.get_pos()
         for component in self.components:
-            rel_mouse = tuple(i[0]-i[1] for i in zip(mouse_pos,component[1]))
+            rel_mouse = tuple(i[0]-i[1] for i in zip(mouse_pos, component[1]))
             component[0].update(rel_mouse)
 
     def draw(self, root):
