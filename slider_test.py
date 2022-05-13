@@ -10,9 +10,9 @@ winH = 1000
 
 root = pygame.display.set_mode((winW, winH))
 
-mySlider = Slider(50, 500, 10, 10, .4)
-
 man = GUIManager()
+
+mySlider = Slider(height = 50, width = 500, thickness = 5, radius = 12, initial_val=.4)
 man.add(mySlider, (190, 190))
 
 while True:
@@ -22,7 +22,7 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN:
             print(mySlider.val)
 
-    root.fill((100, 100, 100))
+    root.fill((50, 50, 50))
 
     man.update()
     man.draw(root)

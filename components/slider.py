@@ -22,15 +22,19 @@ class Slider:
         return self.val
 
     def draw(self):
-        self.root.fill((255, 255, 255))
+        self.root = self.root.convert_alpha()
+        self.root.fill((0, 0, 0, 0))
 
         p1 = (self.r, self.height//2)
         p2 = (self.width-self.r, self.height//2)
 
         pVal = (self.r + self.val * (self.width - self.r*2), self.height//2)
 
-        pygame.draw.line(self.root, (0, 0, 0), p1, p2, self.thickness)
+        pygame.draw.line(self.root, (57,189,248), p1, pVal, self.thickness)
+        pygame.draw.line(self.root, (200, 200, 200), pVal, p2, self.thickness)
+        
         pygame.draw.circle(self.root, (0, 0, 0), pVal, self.r)
+        pygame.draw.circle(self.root, (255, 255, 255), pVal, self.r - 3)
 
 
     def update(self, rel_mouse):
