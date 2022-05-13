@@ -9,7 +9,7 @@ class Slider:
         self.val = initial_val
         self.r = radius
         self.root = pygame.Surface((self.width, self.height))
-        
+
         self.grabbed = False
         self.prev_mouse_down = False
 
@@ -17,7 +17,7 @@ class Slider:
 
     def get_surf(self):
         return self.root
-    
+
     def get_val(self):
         return self.val
 
@@ -30,30 +30,33 @@ class Slider:
 
         pVal = (self.r + self.val * (self.width - self.r*2), self.height//2)
 
-        pygame.draw.line(self.root, (57,189,248), p1, pVal, self.thickness)
+        pygame.draw.line(self.root, (57, 189, 248), p1, pVal, self.thickness)
         pygame.draw.line(self.root, (200, 200, 200), pVal, p2, self.thickness)
-        
+
         pygame.draw.circle(self.root, (0, 0, 0), pVal, self.r)
         pygame.draw.circle(self.root, (255, 255, 255), pVal, self.r - 3)
-
 
     def update(self, rel_mouse):
         mouse_down = pygame.mouse.get_pressed()[0]
 
-        in_comp = (0 <= rel_mouse[0] < self.width and 0 <= rel_mouse[1] < self.height) # TODO put this in parent class
+        # TODO put this in parent class
+        in_comp = (0 <= rel_mouse[0] < self.width and 0 <=
+                   rel_mouse[1] < self.height)
         on_click = (mouse_down and not self.prev_mouse_down)
-        
+
         if (in_comp and on_click):
             self.grabbed = True
 
         if (not mouse_down):
             self.grabbed = False
- 
+
         if self.grabbed:
             new_val = (rel_mouse[0]-self.r)/(self.width-2*self.r)
-            
-            if new_val < 0: new_val = 0
-            elif new_val > 1: new_val = 1 # TODO add to parent class / helper classes/functions
+
+            if new_val < 0:
+                new_val = 0
+            elif new_val > 1:
+                new_val = 1  # TODO add to parent class / helper classes/functions
 
             self.val = new_val
             self.draw()

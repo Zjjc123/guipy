@@ -1,7 +1,9 @@
-import pygame
 import sys
-from components.slider import Slider
+import pygame
+
 from manager import GUIManager
+from components.slider import Slider
+
 
 pygame.init()
 
@@ -12,7 +14,7 @@ root = pygame.display.set_mode((winW, winH))
 
 man = GUIManager()
 
-mySlider = Slider(height = 50, width = 500, thickness = 5, radius = 12, initial_val=.4)
+mySlider = Slider(height=50, width=500, thickness=5, radius=12, initial_val=.4)
 man.add(mySlider, (190, 190))
 
 while True:
