@@ -16,4 +16,5 @@ class GUIManager:
 
     def draw(self, root):
         for component in self.components:
+            component[0].draw()
             root.blit(component[0].get_surf(), component[1])
