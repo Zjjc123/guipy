@@ -8,8 +8,7 @@ class GUIManager:
     def add(self, component, pos):
         self.components.append((component, pos))
 
-    def update(self):
-        mouse_pos = pygame.mouse.get_pos()
+    def update(self, mouse_pos):
         for component in self.components:
             rel_mouse = tuple(i[0]-i[1] for i in zip(mouse_pos, component[1]))
             component[0].update(rel_mouse)

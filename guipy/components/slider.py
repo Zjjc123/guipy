@@ -1,5 +1,5 @@
 import pygame
-from component import Component
+from guipy.components.component import Component
 
 
 class Slider(Component):
