@@ -1,3 +1,37 @@
 [build-system]
-requires = ["setuptools>=42"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "guipylib"
+version = "0.0.0"
+description = "UI library for pygame"
+readme = "README.md"
+authors = ["Casey Culbertson, Jason Zhang <me@jasonzhang.dev>"]
+license = "MIT"
+repository = "https://github.com/Zjjc123/guipy"
+homepage = "https://github.com/Zjjc123/guipy"
+
+# Keywords description https://python-poetry.org/docs/pyproject/#keywords
+keywords = []  #! Update me
+
+# Pypi classifiers: https://pypi.org/classifiers/
+classifiers = [
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+]
+
+packages = [
+    { include = "guipy"},
+    { include = "guipy/**/*.py"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pygame = "^2.1.2"
