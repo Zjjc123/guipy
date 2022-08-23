@@ -110,5 +110,5 @@ if __name__ == "__main__":
                            10 + mySlider.get_val() * 100)
 
         man.draw(root)
-        man.update()
+        man.update(pygame.mouse.get_pos())
         pygame.display.update()

@@ -1,6 +1,3 @@
-import pygame
-
-
 class GUIManager:
     def __init__(self):
         self.components = []

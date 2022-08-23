@@ -1,30 +1,26 @@
-name: Deployment
+name: Publish
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 jobs:
-  deploy_docs:
+  deploy:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check-out
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: '3.x'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Build distribution
-      run: python setup.py sdist bdist_wheel
-    - name: Deploy
-      run: twine upload -r pypi dist/*
-      env:
-        TWINE_USERNAME: ${{ secrets.DEPLOY_USER }}
-        TWINE_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+        pip install poetry     
+    - name: Build and publish
+      run: |
+        poetry version $(git describe --tags --abbrev=0)
+        poetry build
+        poetry publish --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PYPI_PASSWORD }}    
