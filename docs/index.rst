@@ -15,6 +15,12 @@ Welcome to Guipy's documentation!
 
    autoapi/index
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Changelog
+
+   changelog
+
 Indices and tables
 ==================
 
