@@ -8,6 +8,12 @@ Welcome to Guipy's documentation!
    getting_started/overview
    getting_started/installation
    getting_started/starting
+   
+.. toctree:: 
+   :maxdepth: 1
+   :caption: Documentation
+
+   autoapi/index
 
 Indices and tables
 ==================

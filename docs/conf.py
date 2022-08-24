@@ -14,7 +14,10 @@ release = '0.0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['autoapi.extension']
+
+autoapi_type = 'python'
+autoapi_dirs = ['../guipy']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
