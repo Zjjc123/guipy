@@ -35,3 +35,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.6"
 pygame = "^2.1.2"
+
+[tool.poetry.dev-dependencies]
+Sphinx = "^5.1.1"
+sphinx-rtd-theme = "^1.0.0"
