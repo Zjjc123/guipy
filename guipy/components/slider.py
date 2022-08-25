@@ -20,10 +20,10 @@ class Slider(Component):
         self.root = self.root.convert_alpha()
         self.root.fill((0, 0, 0, 0))
 
-        p1 = (self.r, self.height//2)
-        p2 = (self.width-self.r, self.height//2)
+        p1 = (self.r, self.height // 2)
+        p2 = (self.width - self.r, self.height // 2)
 
-        pVal = (self.r + self.val * (self.width - self.r*2), self.height//2)
+        pVal = (self.r + self.val * (self.width - self.r * 2), self.height // 2)
 
         pygame.draw.line(self.root, (57, 189, 248), p1, pVal, self.thickness)
         pygame.draw.line(self.root, (200, 200, 200), pVal, p2, self.thickness)
@@ -35,18 +35,17 @@ class Slider(Component):
         mouse_down = pygame.mouse.get_pressed()[0]
 
         # TODO put this in parent class
-        in_comp = (0 <= rel_mouse[0] < self.width and 0 <=
-                   rel_mouse[1] < self.height)
-        on_click = (mouse_down and not self.prev_mouse_down)
+        in_comp = 0 <= rel_mouse[0] < self.width and 0 <= rel_mouse[1] < self.height
+        on_click = mouse_down and not self.prev_mouse_down
 
-        if (in_comp and on_click):
+        if in_comp and on_click:
             self.grabbed = True
 
-        if (not mouse_down):
+        if not mouse_down:
             self.grabbed = False
 
         if self.grabbed:
-            new_val = (rel_mouse[0]-self.r)/(self.width-2*self.r)
+            new_val = (rel_mouse[0] - self.r) / (self.width - 2 * self.r)
 
             if new_val < 0:
                 new_val = 0
@@ -66,8 +65,9 @@ if __name__ == "__main__":
     import os
     import inspect
 
-    currentdir = os.path.dirname(os.path.abspath(
-        inspect.getfile(inspect.currentframe())))
+    currentdir = os.path.dirname(
+        os.path.abspath(inspect.getfile(inspect.currentframe()))
+    )
     parentdir = os.path.dirname(currentdir)
     sys.path.insert(0, parentdir)
 
@@ -82,14 +82,10 @@ if __name__ == "__main__":
 
     man = GUIManager()
 
-    mySlider = Slider(height=50, width=500, thickness=5,
-                      radius=12, initial_val=.4)
-    mySlider2 = Slider(height=50, width=500, thickness=5,
-                       radius=12, initial_val=0)
-    mySlider3 = Slider(height=50, width=500, thickness=5,
-                       radius=12, initial_val=.5)
-    mySlider4 = Slider(height=50, width=500, thickness=5,
-                       radius=12, initial_val=.5)
+    mySlider = Slider(height=50, width=500, thickness=5, radius=12, initial_val=0.4)
+    mySlider2 = Slider(height=50, width=500, thickness=5, radius=12, initial_val=0)
+    mySlider3 = Slider(height=50, width=500, thickness=5, radius=12, initial_val=0.5)
+    mySlider4 = Slider(height=50, width=500, thickness=5, radius=12, initial_val=0.5)
 
     man.add(mySlider, (0, 25))
     man.add(mySlider2, (0, 75))
@@ -103,11 +99,16 @@ if __name__ == "__main__":
 
         root.fill((50, 50, 50))
 
-        color = tuple(i * 255 for i in colorsys.hls_to_rgb(mySlider2.get_val(),
-                      mySlider3.get_val(), mySlider4.get_val()))
+        color = tuple(
+            i * 255
+            for i in colorsys.hls_to_rgb(
+                mySlider2.get_val(), mySlider3.get_val(), mySlider4.get_val()
+            )
+        )
 
-        pygame.draw.circle(root, color, (winW/2, winH/2),
-                           10 + mySlider.get_val() * 100)
+        pygame.draw.circle(
+            root, color, (winW / 2, winH / 2), 10 + mySlider.get_val() * 100
+        )
 
         man.draw(root)
         man.update(pygame.mouse.get_pos())
