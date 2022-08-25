@@ -1,5 +1,5 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "ms-python.python",
+  "editor.formatOnSave": false,
+  "python.formatting.provider": "black",
   "esbonio.sphinx.confDir": ""
 }
