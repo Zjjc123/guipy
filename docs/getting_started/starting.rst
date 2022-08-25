@@ -8,18 +8,12 @@ Basic Demo
 ::
 
     import sys
-    from slider import Slider
     import colorsys
 
-    import os
-    import inspect
+    from guipy.manager import GUIManager
+    from guipy.components.slider import Slider
 
-    currentdir = os.path.dirname(os.path.abspath(
-        inspect.getfile(inspect.currentframe())))
-    parentdir = os.path.dirname(currentdir)
-    sys.path.insert(0, parentdir)
-
-    from manager import GUIManager
+    import pygame 
 
     pygame.init()
 
@@ -31,13 +25,13 @@ Basic Demo
     man = GUIManager()
 
     mySlider = Slider(height=50, width=500, thickness=5,
-                      radius=12, initial_val=.4)
+                        radius=12, initial_val=.4)
     mySlider2 = Slider(height=50, width=500, thickness=5,
-                       radius=12, initial_val=0)
+                        radius=12, initial_val=0)
     mySlider3 = Slider(height=50, width=500, thickness=5,
-                       radius=12, initial_val=.5)
+                        radius=12, initial_val=.5)
     mySlider4 = Slider(height=50, width=500, thickness=5,
-                       radius=12, initial_val=.5)
+                        radius=12, initial_val=.5)
 
     man.add(mySlider, (0, 25))
     man.add(mySlider2, (0, 75))
@@ -52,11 +46,12 @@ Basic Demo
         root.fill((50, 50, 50))
 
         color = tuple(i * 255 for i in colorsys.hls_to_rgb(mySlider2.get_val(),
-                      mySlider3.get_val(), mySlider4.get_val()))
+                        mySlider3.get_val(), mySlider4.get_val()))
 
         pygame.draw.circle(root, color, (winW/2, winH/2),
-                           10 + mySlider.get_val() * 100)
+                            10 + mySlider.get_val() * 100)
 
         man.draw(root)
         man.update(pygame.mouse.get_pos())
         pygame.display.update()
+
