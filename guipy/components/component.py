@@ -6,7 +6,7 @@ class Component:
         self.width = width
         self.height = height
 
-        self.root = pygame.Surface((width, height))
+        self.root = pygame.Surface((width, height)).convert_alpha()
 
     def get_surf(self):
         return self.root
