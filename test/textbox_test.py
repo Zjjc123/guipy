@@ -4,9 +4,7 @@ import inspect
 
 import pygame
 
-currentdir = os.path.dirname(
-    os.path.abspath(inspect.getfile(inspect.currentframe()))
-)
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
@@ -16,7 +14,7 @@ from guipy.components.textbox import Textbox
 pygame.init()
 pygame.font.init()
 
-myFont = pygame.font.SysFont('Microsoft Sans Serif',20)
+myFont = pygame.font.SysFont("Microsoft Sans Serif", 20)
 
 winW = 1280
 winH = 720
@@ -40,5 +38,5 @@ while True:
             sys.exit()
     root.fill((200, 200, 200))
     man.draw(root)
-    man.update(pygame.mouse.get_pos(),events)
+    man.update(pygame.mouse.get_pos(), events)
     pygame.display.update()

@@ -5,9 +5,7 @@ import colorsys
 
 import pygame
 
-currentdir = os.path.dirname(
-    os.path.abspath(inspect.getfile(inspect.currentframe()))
-)
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
@@ -48,10 +46,8 @@ while True:
         )
     )
 
-    pygame.draw.circle(
-        root, color, (winW / 2, winH / 2), 10 + mySlider.get_val() * 100
-    )
+    pygame.draw.circle(root, color, (winW / 2, winH / 2), 10 + mySlider.get_val() * 100)
 
     man.draw(root)
-    man.update(pygame.mouse.get_pos(),events)
+    man.update(pygame.mouse.get_pos(), events)
     pygame.display.update()
