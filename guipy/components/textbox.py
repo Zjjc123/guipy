@@ -1,10 +1,20 @@
 import pygame
-
 from guipy.components.component import Component
 
 
 class Textbox(Component):
-    def __init__(self, width, height, font=None, default_text="Type here..."):
+    """
+    Textbox component for text input
+    """
+
+    def __init__(self, width, font=None, default_text="Type here..."):
+        """
+        Textbox init
+
+        :param width: Width of the textbox
+        :param font: Pygame Font object to be used
+        :param default_text: Text to be shown when textbox is empty
+        """
         height = font.get_height() + 6
         super().__init__(width, height)
 
@@ -16,10 +26,15 @@ class Textbox(Component):
         self.default = self.text_surf
 
     def get_val(self):
+        """
+        Get current text
+        """
         return self.text
 
     def draw(self):
-
+        """
+        Renders the textbox
+        """
         self.root.fill((0, 0, 0, 0))
 
         pygame.draw.rect(self.root, (255, 255, 255), self.root.get_rect())
@@ -30,6 +45,13 @@ class Textbox(Component):
         self.root.blit(self.text_surf, (4, 3))
 
     def update(self, rel_mouse, events):
+        """
+        Update the textbox
+        
+        :param rel_mouse: Relative mouse position
+        :param events: Pygame Event list (used to read keypresses)
+        """
+        
         mouse_down = pygame.mouse.get_pressed()[0]
 
         in_comp = self.root.get_rect().collidepoint(rel_mouse)

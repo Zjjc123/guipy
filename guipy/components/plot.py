@@ -3,17 +3,17 @@ from guipy.components.component import Component
 from guipy.utils import *
 import math
 
-# plot points connected by lines
-def line(surf, points):
-    last = None
-    for p in points:
-        if last:
-            pygame.draw.line(surf, BLUE, last, p, 2)
-        last = p
-
 
 class Plot(Component):
     def __init__(self, width, height, xlabel=None, ylabel=None):
+        """
+        Plot init
+        
+        :param width: Plot width in pixels
+        :param height: Plot height in pixels
+        :param xlabel: X-axis label
+        :param ylabel: Y-axis label
+        """
         super().__init__(width, height)
 
         self.xlabel = xlabel
@@ -39,17 +39,23 @@ class Plot(Component):
 
         self.clear()
 
-    def _x(self, x):
+    def _x(self, x): # coordinate to pixel
         return translate(
             x, self.xmin, self.xmax, self._windrect.left, self._windrect.right
         )
 
-    def _y(self, y):
+    def _y(self, y): # coordinate to pixel
         return translate(
             y, self.ymax, self.ymin, self._windrect.top, self._windrect.bottom
         )
 
     def set_range(self, xrange, yrange):
+        """
+        Sets the plot X and Y range and draws the axes using the new range.
+        
+        :param xrange: List of minimum and maximum X values. ex: (0,100)
+        :param yrange: List of minimum and maximum Y values. ex: (0,100)
+        """
         self.xmin = xrange[0]
         self.xmax = xrange[1]
         self.ymin = yrange[0]
@@ -108,14 +114,38 @@ class Plot(Component):
             p = (self.width - label.get_width(), (h - label.get_height()) / 2)
             self.root.blit(label, p)
 
+    def line(surf, points):
+        """
+        Default plot style
+
+        :param surf: Surface to draw to
+        :param points: List of pixel coordinates to draw. ex: [(1,1),(2,3),...]
+        """
+        last = None
+        for p in points:
+            if last:
+                pygame.draw.line(surf, BLUE, last, p, 2)
+        last = p
+
     def plot(self, data, style=line):
+        """
+        Plots a list of points
+        
+        :param data: List of points to be plotted. ex: [(1.0,1.0),(1.2,1.3),...]
+        :param style: Style function to be used. Should have the signature (surf:Surface, points:List[Tuple])"""
         self.points = list((self._x(d[0]), self._y(d[1])) for d in data)
         style(self.window, self.points)
         return self.points
 
     def clear(self):
+        """
+        Clears the window
+        """
         self.window.fill(WHITE)
 
     def draw(self):
+        """
+        Draws the window onto the plot
+        """
         self.root.blit(self.window, (0, 0))
         pygame.draw.rect(self.root, BLACK, self.window.get_rect(), 1)

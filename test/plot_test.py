@@ -23,6 +23,9 @@ myPlot1 = Plot(height=winH, width=winW, xlabel="X axis", ylabel="Y axis")
 man = GUIManager()
 man.add(myPlot1, (0, 0))
 
+x = 1
+y = 1
+
 while True:
     events = pygame.event.get()
     for event in events:
@@ -34,7 +37,7 @@ while True:
     x = p[0] if p[0] else x
     y = p[1] if p[1] else y
 
-    myPlot1.set_range((0, y), (0, x))
+    myPlot1.set_range((0, x), (0, y))
 
     myPlot1.clear()
     myPlot1.plot(

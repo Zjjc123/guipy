@@ -22,10 +22,10 @@ winH = 720
 root = pygame.display.set_mode((winW, winH))
 
 man = GUIManager()
-myTextbox1 = Textbox(height=20, width=400, font=myFont)
-myTextbox2 = Textbox(height=20, width=400, font=myFont)
-myTextbox3 = Textbox(height=20, width=400, font=myFont)
-myTextbox4 = Textbox(height=20, width=400, font=myFont)
+myTextbox1 = Textbox(width=400, font=myFont)
+myTextbox2 = Textbox(width=400, font=myFont)
+myTextbox3 = Textbox(width=400, font=myFont)
+myTextbox4 = Textbox(width=400, font=myFont)
 
 man.add(myTextbox1, (10, 25))
 man.add(myTextbox2, (10, 75))
