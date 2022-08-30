@@ -14,5 +14,5 @@ class Component:
     def draw(self):
         pass
 
-    def update(self):
+    def update(self, rel_mouse, events):
         pass
