@@ -19,22 +19,17 @@ class GUIManager:
         """
         self.components.append((component, pos))
 
-    def update(self, mouse_pos):
+    def update(self, mouse_pos, events):
         """
         Add component to manager
 
-        Parameters
-        ----------
-        component
-            UI componenet to be added
-
-        pos
-            Position of UI on screen
+        :param mouse_pos: Mouse position used to update the components
+        :param events: Pygame events used to update the components
 
         """
         for component in self.components:
             rel_mouse = tuple(i[0] - i[1] for i in zip(mouse_pos, component[1]))
-            component[0].update(rel_mouse)
+            component[0].update(rel_mouse, events)
 
     def draw(self, root):
         for component in self.components:
