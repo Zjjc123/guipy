@@ -1,7 +1,7 @@
 def sub_coords(offset, coord):
     """
     Finds the relative coordinate of one point in another point
-    
+
     :param coord: the coordinate
     :param offset: the coordinate relative to
 
@@ -25,6 +25,7 @@ def translate(value, min1, max1, min2, max2):
         return 0
     valueScaled = float(value - min1) / float(span1)
     return min2 + (valueScaled * span2)
+
 
 WHITE = (255, 255, 255)
 """
