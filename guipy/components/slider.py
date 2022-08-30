@@ -1,9 +1,22 @@
 import pygame
-from guipy.components.component import Component
+from guipy.components._component import Component
 
 
 class Slider(Component):
+    """
+    Slider component for user interactions with drag and value setting
+    """
+
     def __init__(self, width, height, thickness=2, radius=10, initial_val=0):
+        """
+        Initializes Slider Component
+
+        :param width: width of slider
+        :param height: height of slider
+        :param thickness: thickness of slider line
+        :param radius: radius of knob
+        :param initial_val: initial value of the slider (0.0 - 1.0)
+        """
         super().__init__(width, height)
 
         self.thickness = thickness
@@ -14,9 +27,17 @@ class Slider(Component):
         self.prev_mouse_down = False
 
     def get_val(self):
+        """
+        Get the value of the slider
+
+        :return current value of slider (0.0 - 1.0)
+        """
         return self.val
 
     def draw(self):
+        """
+        Renders slider onto surface
+        """
         self.root.fill((0, 0, 0, 0))
 
         p1 = (self.r, self.height // 2)
@@ -31,6 +52,11 @@ class Slider(Component):
         pygame.draw.circle(self.root, (255, 255, 255), pVal, self.r - 3)
 
     def update(self, rel_mouse, events):
+        """
+        Updates slider logic
+
+        :param rel_mouse: relative mouse position based on slider position
+        """
         mouse_down = pygame.mouse.get_pressed()[0]
 
         # TODO put this in parent class
