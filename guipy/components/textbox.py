@@ -47,11 +47,11 @@ class Textbox(Component):
     def update(self, rel_mouse, events):
         """
         Update the textbox
-        
+
         :param rel_mouse: Relative mouse position
         :param events: Pygame Event list (used to read keypresses)
         """
-        
+
         mouse_down = pygame.mouse.get_pressed()[0]
 
         in_comp = self.root.get_rect().collidepoint(rel_mouse)
