@@ -1,5 +1,5 @@
 import pygame
-from guipy.components.component import Component
+from guipy.components._component import Component
 
 
 class Textbox(Component):
