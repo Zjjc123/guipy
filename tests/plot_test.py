@@ -10,6 +10,7 @@ sys.path.insert(0, parentdir)
 
 from guipy.manager import GUIManager
 from guipy.components.plot import Plot
+from guipy.utils import *
 
 winW = 1280
 winH = 720
@@ -29,7 +30,7 @@ while True:
     for event in events:
         if event.type == pygame.QUIT:
             sys.exit()
-    root.fill((200, 200, 200))
+    root.fill(LIGHT_GREY)
 
     p = pygame.mouse.get_pos()
     x = p[0] if p[0] else x

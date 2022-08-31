@@ -9,13 +9,16 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
 from guipy.manager import GUIManager
-from guipy.components.button import Button
+from guipy.components.switch import Switch
 from guipy.utils import *
 
 
-def func(button):
-    button.set_text(button.text + "!")
-    print(button.text)
+def func1():
+    print("on")
+
+
+def func2():
+    print("off")
 
 
 winW = 1280
@@ -24,15 +27,15 @@ winH = 720
 root = pygame.display.set_mode((winW, winH))
 
 man = GUIManager()
-myButton1 = Button(width=200, func=func)
-myButton2 = Button(width=200, func=func)
-myButton3 = Button(width=200, func=func)
-myButton4 = Button(width=200, func=func)
+mySwitch1 = Switch(width=20, height=10).set_funcs(on_func=func1, off_func=func2)
+mySwitch2 = Switch(width=30, height=15).set_funcs(on_func=func1, off_func=func2)
+mySwitch3 = Switch(width=60, height=30).set_funcs(on_func=func1, off_func=func2)
+mySwitch4 = Switch(width=200, height=300).set_funcs(on_func=func1, off_func=func2)
 
-man.add(myButton1, (10, 25))
-man.add(myButton2, (10, 75))
-man.add(myButton3, (10, 125))
-man.add(myButton4, (10, 175))
+man.add(mySwitch1, (10, 25))
+man.add(mySwitch2, (10, 75))
+man.add(mySwitch3, (10, 125))
+man.add(mySwitch4, (10, 175))
 while True:
     events = pygame.event.get()
     for event in events:

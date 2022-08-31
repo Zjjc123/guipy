@@ -28,12 +28,17 @@ class Button(Component):
             width = min_w + 6
         if height == None:
             height = min_h
+
         super().__init__(width, height)
+        self.off_surf = self.root.copy()
+        self.on_surf = self.root.copy()
+        self.root = self.off_surf
 
         self.pressed = False
         self.prev_mouse_down = False
+        self.text = text
 
-        self.set_text(text)
+        self._render()
         self.set_func(func)
 
     def get_val(self):
@@ -51,6 +56,24 @@ class Button(Component):
         self.func = func
         return self
 
+    def _render(self):
+        text_surf = self.font.render(self.text, True, BLACK)
+
+        x, y = sub_vector(self.root.get_size(), text_surf.get_size())
+        pos = (x // 2, y // 2)
+
+        self.off_surf.fill(TRANSPARENT)
+        surf = self.off_surf
+        pygame.draw.rect(surf, LIGHT_GREY, surf.get_rect())
+        pygame.draw.rect(surf, DARK_GREY, surf.get_rect(), 1)
+        surf.blit(text_surf, pos)
+
+        self.on_surf.fill(TRANSPARENT)
+        surf = self.on_surf
+        pygame.draw.rect(surf, GREY, surf.get_rect())
+        pygame.draw.rect(surf, DARK_GREY, surf.get_rect(), 1)
+        surf.blit(text_surf, pos)
+
     def set_text(self, text):
         """
         Sets the text on the button and redraws the surface
@@ -58,35 +81,18 @@ class Button(Component):
         :param text:
         """
         self.text = text
-        text_surf = self.font.render(text, True, BLACK)
-
-        x, y = sub_vector(self.root.get_size(), text_surf.get_size())
-        pos = (x // 2, y // 2)
-
-        surf = self.root.copy()
-        pygame.draw.rect(surf, LIGHT_GREY, surf.get_rect())
-        pygame.draw.rect(surf, DARK_GREY, surf.get_rect(), 1)
-        surf.blit(text_surf, pos)
-        self.off_surf = surf
-
-        surf = self.root.copy()
-        pygame.draw.rect(surf, GREY, surf.get_rect())
-        pygame.draw.rect(surf, DARK_GREY, surf.get_rect(), 1)
-        surf.blit(text_surf, pos)
-        self.on_surf = surf
-
+        self._render()
         return self
 
     def draw(self):
         """
         Renders the button
         """
-        self.root.fill((0, 0, 0, 0))
 
         if self.pressed:
-            self.root.blit(self.on_surf, (0, 0))
+            self.root = self.on_surf
         else:
-            self.root.blit(self.off_surf, (0, 0))
+            self.root = self.off_surf
 
     def update(self, rel_mouse, events):
         """

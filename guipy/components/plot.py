@@ -64,18 +64,7 @@ class Plot(Component):
             y, self.ymax, self.ymin, self._windrect.top, self._windrect.bottom
         )
 
-    def set_range(self, xrange, yrange):
-        """
-        Sets the plot X and Y range and draws the axes using the new range.
-
-        :param xrange: List of minimum and maximum X values. ex: (0,100)
-        :param yrange: List of minimum and maximum Y values. ex: (0,100)
-        """
-        self.xmin = xrange[0]
-        self.xmax = xrange[1]
-        self.ymin = yrange[0]
-        self.ymax = yrange[1]
-
+    def _render(self):
         w = self.window.get_width()
         h = self.window.get_height()
 
@@ -85,7 +74,7 @@ class Plot(Component):
         scale = math.floor(math.log10(self.xmax - self.xmin)) - 1
         res = 10**scale
 
-        i = math.ceil(xrange[0] / res) * res
+        i = math.ceil(self.xmin / res) * res
 
         while i <= self.xmax:
             p1 = (self._x(i), h)
@@ -128,6 +117,20 @@ class Plot(Component):
             label = pygame.transform.rotate(label, 90)
             p = (self.width - label.get_width(), (h - label.get_height()) / 2)
             self.root.blit(label, p)
+
+    def set_range(self, xrange, yrange):
+        """
+        Sets the plot X and Y range and draws the axes using the new range.
+
+        :param xrange: List of minimum and maximum X values. ex: (0,100)
+        :param yrange: List of minimum and maximum Y values. ex: (0,100)
+        """
+        self.xmin = xrange[0]
+        self.xmax = xrange[1]
+        self.ymin = yrange[0]
+        self.ymax = yrange[1]
+
+        self._render()
 
     def plot(self, data, style=line):
         """

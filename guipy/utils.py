@@ -80,3 +80,7 @@ ORANGE = (255, 100, 0)
 """
 Preset for the color Orange
 """
+TRANSPARENT = (0, 0, 0, 0)
+"""
+Preset for transparent (for alpha surfaces)
+"""
