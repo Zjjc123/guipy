@@ -11,8 +11,6 @@ sys.path.insert(0, parentdir)
 from guipy.manager import GUIManager
 from guipy.components.plot import Plot
 
-pygame.init()
-
 winW = 1280
 winH = 720
 

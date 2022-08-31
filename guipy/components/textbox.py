@@ -1,5 +1,6 @@
 import pygame
 from guipy.components._component import Component
+from guipy.utils import *
 
 
 class Textbox(Component):
@@ -15,21 +16,35 @@ class Textbox(Component):
         :param font: Pygame Font object to be used
         :param default_text: Text to be shown when textbox is empty
         """
+        if font == None:
+            self.font = get_default_font()
+        else:
+            self.font = font
+
         height = font.get_height() + 6
         super().__init__(width, height)
 
         self.active = False
         self.prev_mouse_down = False
         self.text = ""
-        self.font = font
         self.text_surf = font.render(default_text, True, (200, 200, 200))
         self.default = self.text_surf
+        self.func = None
 
     def get_val(self):
         """
         Get current text
         """
         return self.text
+
+    def set_func(self, func):
+        """
+        Set the function to be run when text is entered
+
+        :param func: Function with signature (textbox:Textbox)
+        """
+        self.func = func
+        return self
 
     def draw(self):
         """
@@ -58,14 +73,18 @@ class Textbox(Component):
         on_click = mouse_down and not self.prev_mouse_down
 
         if on_click:
+            if self.active and not in_comp and self.func != None:
+                self.func(self)
             self.active = in_comp
 
         if self.active:
+
             for event in events:
                 if event.type == pygame.KEYDOWN:
                     # check for backspace
                     if event.key == pygame.K_RETURN:
-                        self.active = False
+                        if self.func != None:
+                            self.func(self)
                     elif event.key == pygame.K_BACKSPACE:
                         self.text = self.text[:-1]
                     else:  # add character

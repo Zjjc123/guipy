@@ -45,9 +45,7 @@ class Plot(Component):
         self.ymax = 1
         self.points = []
 
-        pygame.font.init()
-        font_name = pygame.font.get_fonts()[0]
-        self.font = pygame.font.SysFont(font_name, 20)
+        self.font = get_default_font()
 
         self.window = pygame.Surface(
             (width - self.yaxis_spacer, height - self.xaxis_spacer)
