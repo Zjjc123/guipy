@@ -4,7 +4,17 @@ from guipy.utils import *
 
 
 class Switch(Component):
+    """
+    Switch component
+    """
+
     def __init__(self, width, height):
+        """
+        Switch init
+
+        :param width: Width in pixels
+        :param height: Height in pixels
+        """
         super().__init__(width, height)
         self.off_surf = self.root.copy()
         self.on_surf = self.root.copy()
@@ -16,9 +26,18 @@ class Switch(Component):
         self._render()
 
     def get_val(self):
+        """
+        Gets the state of the switch as a boolean
+        """
         return self.state
 
     def set_funcs(self, on_func=None, off_func=None):
+        """
+        Sets the functions to run when the switch is turned on or off
+
+        :param on_func: Function to run when the switch is turned on
+        :param off_func: Function to run when the switch is turned off
+        """
         self.on_func = on_func
         self.off_func = off_func
         return self
@@ -49,6 +68,9 @@ class Switch(Component):
         pygame.draw.rect(surf, BLACK, rect, 1, corner)
 
     def draw(self):
+        """
+        Draws the switch dependant on the state
+        """
         if self.state:
             self.root = self.on_surf
         else:
@@ -56,7 +78,7 @@ class Switch(Component):
 
     def update(self, rel_mouse, events):
         """
-        Update the button
+        Update the switch
 
         :param rel_mouse: Relative mouse position
         :param events: Pygame Event list

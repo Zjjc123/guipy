@@ -35,6 +35,8 @@ def translate(value, min1, max1, min2, max2):
     span2 = max2 - min2
     if span1 == 0:
         return 0
+    if value == None:
+        return None
     valueScaled = float(value - min1) / float(span1)
     return min2 + (valueScaled * span2)
 
