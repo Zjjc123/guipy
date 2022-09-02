@@ -168,7 +168,8 @@ class Plot(Component):
 class LivePlot(Plot):
     """
     Live plot component. Unlike Plot, this will receive data continouously and add it to a buffer. Data is deleted from the buffer when it falls outside of a specified time range (time_range). \
-    The axes adjust automatically to show all the data."""
+    The axes adjust automatically to show all the data.
+    """
 
     def __init__(
         self,
@@ -185,9 +186,11 @@ class LivePlot(Plot):
 
         :param width: Plot width in pixels
         :param height: Plot height in pixels
+        :param style: Style function to be used. Should have the signature (surf:Surface, points:List[Tuple])
         :param glide: y-axis glide value. A glide value above 1 will adjust the y range gradually. A value of 1 will make the y range snap to the new value. Any value below 1 will only increase the y range.
-        :param xlabel: X-axis label
-        :param ylabel: Y-axis label
+        :param xlabel: x-axis label
+        :param ylabel: y-axis label
+        :param time_range: x-axis range width
         """
 
         super().__init__(width, height, xlabel=xlabel, ylabel=ylabel)
@@ -214,10 +217,19 @@ class LivePlot(Plot):
                 i += 1
             self.buffer = self.buffer[i - 1 :]
 
-    def reset(self):
+    def clear_buffer(self):
+        """
+        Removes all data from the buffer
+        """
         self.buffer = []
 
     def update(self, rel_mouse, events):
+        """
+        Updates the plot, specifically the range
+
+        :param rel_mouse: relative mouse position (unused)
+        :param events: Pygame event list (unused)
+        """
         if len(self.buffer) < 2:
             return
 
@@ -246,6 +258,9 @@ class LivePlot(Plot):
         self.set_range((xmin, xmax), (ymin, ymax))
 
     def draw(self):
+        """
+        Draw the plot
+        """
         self.clear()
         self.plot(self.buffer, self.style)
         super().draw()
