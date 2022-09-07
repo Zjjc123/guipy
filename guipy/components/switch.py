@@ -42,7 +42,7 @@ class Switch(Component):
         self.off_func = off_func
         return self
 
-    def _render(self):
+    def _draw(self):
         spacer = 3
         corner = 7
         alpha = 200
@@ -67,7 +67,7 @@ class Switch(Component):
         pygame.draw.rect(surf, GREY, rect, 0, corner)
         pygame.draw.rect(surf, BLACK, rect, 1, corner)
 
-    def draw(self):
+    def render(self):
         """
         Draws the switch dependant on the state
         """
