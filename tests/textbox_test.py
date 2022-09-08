@@ -34,6 +34,6 @@ while True:
         if event.type == pygame.QUIT:
             sys.exit()
     root.fill((200, 200, 200))
-    man.draw(root)
-    man.update(pygame.mouse.get_pos(), events)
+
+    man.update(pygame.mouse.get_pos(), events, root)
     pygame.display.update()

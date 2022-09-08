@@ -36,7 +36,6 @@ while True:
 
     myPlot1.add([(time.time(), p[1])])
 
-    man.update(p, [])
-    man.draw(root)
+    man.update(p, [], root)
 
     pygame.display.update()
