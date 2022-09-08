@@ -43,6 +43,5 @@ while True:
 
     root.fill(WHITE)
 
-    man.update(pygame.mouse.get_pos(), events)
-    man.draw(root)
+    man.update(pygame.mouse.get_pos(), events, root)
     pygame.display.update()

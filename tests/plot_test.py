@@ -46,6 +46,5 @@ while True:
         [(10, 60), (10, 40), (0, 30), (0, 10), (10, 0), (20, 10), (20, 30), (15, 35)]
     )
 
-    man.draw(root)
-    # man.update(pygame.mouse.get_pos(),events)
+    man.update(pygame.mouse.get_pos(), events, root)
     pygame.display.update()

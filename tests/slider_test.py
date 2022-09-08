@@ -47,6 +47,5 @@ while True:
     pygame.draw.circle(root, color, center, r)
     pygame.draw.circle(root, BLACK, center, r, 3)
 
-    man.draw(root)
-    man.update(pygame.mouse.get_pos(), events)
+    man.update(pygame.mouse.get_pos(), events, root)
     pygame.display.update()
