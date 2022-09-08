@@ -40,12 +40,10 @@ while True:
 
     color = tuple(
         i * 255
-        for i in colorsys.hls_to_rgb(
-            mySlider2.get_val(), mySlider3.get_val(), mySlider4.get_val()
-        )
+        for i in colorsys.hls_to_rgb(mySlider2.val, mySlider3.val, mySlider4.val)
     )
     center = (winW // 2, winH // 2)
-    r = 10 + mySlider.get_val() * 100
+    r = 10 + mySlider.val * 100
     pygame.draw.circle(root, color, center, r)
     pygame.draw.circle(root, BLACK, center, r, 3)
 

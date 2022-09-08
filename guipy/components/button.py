@@ -8,7 +8,7 @@ class Button(Component):
     Button component
     """
 
-    def __init__(self, width=None, height=None, font=None, text="Bruh", func=None):
+    def __init__(self, width=None, height=None, font=None, text="Bruh"):
         """
         Button init
 
@@ -29,17 +29,16 @@ class Button(Component):
         if height == None:
             height = min_h
 
-        super().__init__(width, height)
-        self.off_surf = self.root.copy()
-        self.on_surf = self.root.copy()
-        self.root = self.off_surf
+        self.width = width
+        self.height = height
+        self.off_surf = pygame.Surface((self.width, self.height)).convert_alpha()
+        self.on_surf = pygame.Surface((self.width, self.height)).convert_alpha()
 
         self.pressed = False
-        self.prev_mouse_down = False
-        self.text = text
 
-        self._render()
-        self.set_func(func)
+        self.set_text(text)
+
+        self.cb = None
 
     def get_val(self):
         """
@@ -47,19 +46,19 @@ class Button(Component):
         """
         return self.pressed
 
-    def set_func(self, func):
+    def set_callback(self, cb):
         """
         Set the function to be run when button is released
 
         :param func: Function with signature (button:Button)
         """
-        self.func = func
+        self.cb = cb
         return self
 
-    def _render(self):
+    def _draw(self):
         text_surf = self.font.render(self.text, True, BLACK)
 
-        x, y = sub_vector(self.root.get_size(), text_surf.get_size())
+        x, y = sub_vector((self.width, self.height), text_surf.get_size())
         pos = (x // 2, y // 2)
 
         self.off_surf.fill(TRANSPARENT)
@@ -81,18 +80,18 @@ class Button(Component):
         :param text:
         """
         self.text = text
-        self._render()
+        self._draw()
         return self
 
-    def draw(self):
+    def render(self):
         """
         Renders the button
         """
 
         if self.pressed:
-            self.root = self.on_surf
+            return self.on_surf
         else:
-            self.root = self.off_surf
+            return self.off_surf
 
     def update(self, rel_mouse, events):
         """
@@ -101,18 +100,20 @@ class Button(Component):
         :param rel_mouse: Relative mouse position
         :param events: Pygame Event list
         """
+        on_click = False
+        on_release = False
+        for event in events:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                on_click = True
+            if event.type == pygame.MOUSEBUTTONUP:
+                on_release = True
 
-        mouse_down = pygame.mouse.get_pressed()[0]
+        in_comp = self._collide(rel_mouse)
 
-        in_comp = self.root.get_rect().collidepoint(rel_mouse)
-        on_release = not mouse_down and self.prev_mouse_down
-
-        if self.pressed and on_release:
-            self.pressed = False
-            if self.func != None:
-                self.func(self)
-
-        if mouse_down and in_comp:
+        if on_click and in_comp:
             self.pressed = True
 
-        self.prev_mouse_down = mouse_down
+        if on_release and self.pressed:
+            if in_comp and self.cb != None:
+                self.cb(self)
+            self.pressed = False

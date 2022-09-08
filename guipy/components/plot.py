@@ -31,7 +31,8 @@ class Plot(Component):
         :param xlabel: X-axis label
         :param ylabel: Y-axis label
         """
-        super().__init__(width, height)
+        self.width = width
+        self.height = height
 
         self.xlabel = xlabel
         self.ylabel = ylabel
@@ -46,7 +47,7 @@ class Plot(Component):
         self.points = []
 
         self.font = get_default_font()
-
+        self.root = pygame.Surface((self.width, self.height)).convert_alpha()
         self.window = pygame.Surface(
             (width - self.yaxis_spacer, height - self.xaxis_spacer)
         )
@@ -64,7 +65,7 @@ class Plot(Component):
             y, self.ymax, self.ymin, self._windrect.top, self._windrect.bottom
         )
 
-    def _render(self):
+    def _draw(self):
         w = self.window.get_width()
         h = self.window.get_height()
 
@@ -138,7 +139,7 @@ class Plot(Component):
             self.ymin = yrange[0]
             self.ymax = yrange[1]
 
-        self._render()
+        self._draw()
 
     def plot(self, data, style=line):
         """
@@ -157,12 +158,13 @@ class Plot(Component):
         """
         self.window.fill(WHITE)
 
-    def draw(self):
+    def render(self):
         """
         Draws the window onto the plot
         """
         self.root.blit(self.window, (0, 0))
         pygame.draw.rect(self.root, BLACK, self.window.get_rect(), 1)
+        return self.root
 
 
 class LivePlot(Plot):
@@ -257,10 +259,10 @@ class LivePlot(Plot):
 
         self.set_range((xmin, xmax), (ymin, ymax))
 
-    def draw(self):
+    def render(self):
         """
         Draw the plot
         """
         self.clear()
         self.plot(self.buffer, self.style)
-        super().draw()
+        return super().render()

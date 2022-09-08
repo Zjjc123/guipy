@@ -46,6 +46,10 @@ def get_default_font():
     return pygame.font.SysFont(font_name, 20)
 
 
+def clip(value, min1, max1):
+    return max(min1, min(max1, value))
+
+
 WHITE = (255, 255, 255)
 """
 Preset for the color White

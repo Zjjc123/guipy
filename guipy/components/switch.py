@@ -15,31 +15,24 @@ class Switch(Component):
         :param width: Width in pixels
         :param height: Height in pixels
         """
-        super().__init__(width, height)
-        self.off_surf = self.root.copy()
-        self.on_surf = self.root.copy()
+        self.width = width
+        self.height = height
+
+        self.off_surf = pygame.Surface((self.width, self.height)).convert_alpha()
+        self.on_surf = pygame.Surface((self.width, self.height)).convert_alpha()
 
         self.state = False
-        self.prev_mouse_down = False
-        self.root = self.off_surf
+        self.cb = None
 
-        self._render()
+        self._draw()
 
-    def get_val(self):
+    def set_callback(self, cb):
         """
-        Gets the state of the switch as a boolean
-        """
-        return self.state
+        Sets the function to run when the switch is changed
 
-    def set_funcs(self, on_func=None, off_func=None):
+        :param cb: Callback function
         """
-        Sets the functions to run when the switch is turned on or off
-
-        :param on_func: Function to run when the switch is turned on
-        :param off_func: Function to run when the switch is turned off
-        """
-        self.on_func = on_func
-        self.off_func = off_func
+        self.cb = cb
         return self
 
     def _draw(self):
@@ -72,9 +65,9 @@ class Switch(Component):
         Draws the switch dependant on the state
         """
         if self.state:
-            self.root = self.on_surf
+            return self.on_surf
         else:
-            self.root = self.off_surf
+            return self.off_surf
 
     def update(self, rel_mouse, events):
         """
@@ -83,20 +76,14 @@ class Switch(Component):
         :param rel_mouse: Relative mouse position
         :param events: Pygame Event list
         """
+        on_click = False
+        for event in events:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                on_click = True
 
-        mouse_down = pygame.mouse.get_pressed()[0]
+        if on_click and self._collide(rel_mouse):
 
-        in_comp = self.root.get_rect().collidepoint(rel_mouse)
-        on_click = mouse_down and not self.prev_mouse_down
-
-        if on_click and in_comp:
             self.state = not self.state
 
-            if self.state:
-                if self.on_func != None:
-                    self.on_func()
-            else:
-                if self.off_func != None:
-                    self.off_func()
-
-        self.prev_mouse_down = mouse_down
+            if self.cb != None:
+                self.cb(self)

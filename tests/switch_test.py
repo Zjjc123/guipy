@@ -13,12 +13,11 @@ from guipy.components.switch import Switch
 from guipy.utils import *
 
 
-def func1():
-    print("on")
-
-
-def func2():
-    print("off")
+def func1(switch):
+    if switch.state:
+        print("on")
+    else:
+        print("off")
 
 
 winW = 1280
@@ -27,10 +26,10 @@ winH = 720
 root = pygame.display.set_mode((winW, winH))
 
 man = GUIManager()
-mySwitch1 = Switch(width=20, height=10).set_funcs(on_func=func1, off_func=func2)
-mySwitch2 = Switch(width=30, height=15).set_funcs(on_func=func1, off_func=func2)
-mySwitch3 = Switch(width=60, height=30).set_funcs(on_func=func1, off_func=func2)
-mySwitch4 = Switch(width=200, height=300).set_funcs(on_func=func1, off_func=func2)
+mySwitch1 = Switch(width=20, height=10).set_callback(func1)
+mySwitch2 = Switch(width=30, height=15).set_callback(func1)
+mySwitch3 = Switch(width=60, height=30).set_callback(func1)
+mySwitch4 = Switch(width=200, height=300).set_callback(func1)
 
 man.add(mySwitch1, (10, 25))
 man.add(mySwitch2, (10, 75))

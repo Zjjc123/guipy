@@ -1,5 +1,6 @@
 import pygame
 from guipy.components._component import Component
+from guipy.utils import *
 
 
 class Slider(Component):
@@ -17,45 +18,33 @@ class Slider(Component):
         :param radius: radius of knob
         :param initial_val: initial value of the slider (0.0 - 1.0)
         """
-        super().__init__(width, height)
+        self.width = width
+        self.height = height
+
+        self.root = pygame.Surface((self.width, self.height)).convert_alpha()
 
         self.thickness = thickness
         self.val = initial_val
         self.r = radius
 
         self.grabbed = False
-        self.prev_mouse_down = False
-
-    def get_val(self):
-        """
-        Get the value of the slider
-
-        :return current value of slider (0.0 - 1.0)
-        """
-        return self.val
 
     def _draw(self):
         """
-        Renders slider onto surface
+        Draws slider onto root
         """
-        surf = pygame.Surface(self.width, self.height)
-        surf.fill((0, 0, 0, 0))
+        self.root.fill((0, 0, 0, 0))
 
         p1 = (self.r, self.height // 2)
         p2 = (self.width - self.r, self.height // 2)
 
         pVal = (self.r + self.val * (self.width - self.r * 2), self.height // 2)
 
-        pygame.draw.line(surf, (57, 189, 248), p1, pVal, self.thickness)
-        pygame.draw.line(surf, (200, 200, 200), pVal, p2, self.thickness)
+        pygame.draw.line(self.root, (57, 189, 248), p1, pVal, self.thickness)
+        pygame.draw.line(self.root, (200, 200, 200), pVal, p2, self.thickness)
 
-        pygame.draw.circle(surf, (0, 0, 0), pVal, self.r)
-        pygame.draw.circle(surf, (255, 255, 255), pVal, self.r - 3)
-
-        return surf
-
-    def render(self):
-        self.root = self._draw()
+        pygame.draw.circle(self.root, (0, 0, 0), pVal, self.r)
+        pygame.draw.circle(self.root, (255, 255, 255), pVal, self.r - 3)
 
     def update(self, rel_mouse, events):
         """
@@ -63,26 +52,23 @@ class Slider(Component):
 
         :param rel_mouse: relative mouse position based on slider position
         """
-        mouse_down = pygame.mouse.get_pressed()[0]
+        on_click = False
+        on_release = False
+        for event in events:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                on_click = True
+            if event.type == pygame.MOUSEBUTTONUP:
+                on_release = True
 
-        # TODO put this in parent class
-        in_comp = 0 <= rel_mouse[0] < self.width and 0 <= rel_mouse[1] < self.height
-        on_click = mouse_down and not self.prev_mouse_down
+        in_comp = self._collide(rel_mouse)
 
         if in_comp and on_click:
             self.grabbed = True
 
-        if not mouse_down:
+        if on_release:
             self.grabbed = False
 
         if self.grabbed:
             new_val = (rel_mouse[0] - self.r) / (self.width - 2 * self.r)
 
-            if new_val < 0:
-                new_val = 0
-            elif new_val > 1:
-                new_val = 1  # TODO add to parent class / helper classes/functions
-
-            self.val = new_val
-
-        self.prev_mouse_down = mouse_down
+            self.val = clip(new_val, 0, 1)

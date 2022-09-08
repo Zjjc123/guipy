@@ -24,10 +24,10 @@ winH = 720
 root = pygame.display.set_mode((winW, winH))
 
 man = GUIManager()
-myButton1 = Button(width=200, func=func)
-myButton2 = Button(width=200, func=func)
-myButton3 = Button(width=200, func=func)
-myButton4 = Button(width=200, func=func)
+myButton1 = Button(width=200).set_callback(func)
+myButton2 = Button(width=200).set_callback(func)
+myButton3 = Button(width=200).set_callback(func)
+myButton4 = Button(width=200).set_callback(func)
 
 man.add(myButton1, (10, 25))
 man.add(myButton2, (10, 75))

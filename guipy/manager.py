@@ -44,5 +44,4 @@ class GUIManager:
         :param root: the surface these components should be drawn on
         """
         for component in self.components:
-            component[0].draw()
-            root.blit(component[0].get_surf(), component[1])
+            root.blit(component[0].render(), component[1])
