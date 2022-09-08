@@ -26,11 +26,11 @@ root = pygame.display.set_mode((winW, winH))
 
 myFont = pygame.font.SysFont("Microsoft Sans Serif", 20)
 man = GUIManager()
-myMenu1 = (
-    Dropdown(200, myFont).add("A", "B", "C", "D", "Bruh", 1 / 7).set_callback(func)
-)
+myMenu1 = Dropdown(200, myFont).add("A", "B", "C", "D").set_callback(func)
+myMenu2 = Dropdown(200, myFont).add(1, 2, 3, 4).set_callback(func)
 
 
+man.add(myMenu2, (150, 150))
 man.add(myMenu1, (100, 100))
 
 
@@ -42,6 +42,5 @@ while True:
 
     root.fill(LIGHT_GREY)
 
-    man.update(pygame.mouse.get_pos(), events)
-    man.draw(root)
+    man.update(pygame.mouse.get_pos(), events, root)
     pygame.display.update()

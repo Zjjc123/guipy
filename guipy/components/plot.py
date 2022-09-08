@@ -123,9 +123,12 @@ class Plot(Component):
             p = (self.width - label.get_width(), (h - label.get_height()) / 2)
             self.root.blit(label, p)
 
+        self.root.blit(self.window, (0, 0))
+        pygame.draw.rect(self.root, BLACK, self.window.get_rect(), 1)
+
     def set_range(self, xrange, yrange):
         """
-        Sets the plot X and Y range and draws the axes using the new range.
+        Sets the plot X and Y range
 
         :param xrange: List of minimum and maximum X values. ex: (0,100)
         :param yrange: List of minimum and maximum Y values. ex: (0,100)
@@ -138,8 +141,6 @@ class Plot(Component):
         if yrange[0] != yrange[1]:
             self.ymin = yrange[0]
             self.ymax = yrange[1]
-
-        self._draw()
 
     def plot(self, data, style=line):
         """
@@ -158,13 +159,11 @@ class Plot(Component):
         """
         self.window.fill(WHITE)
 
-    def render(self):
+    def update(self, rel_mouse, events):
         """
-        Draws the window onto the plot
+        Update the plot
         """
-        self.root.blit(self.window, (0, 0))
-        pygame.draw.rect(self.root, BLACK, self.window.get_rect(), 1)
-        return self.root
+        self._draw()
 
 
 class LivePlot(Plot):
@@ -227,7 +226,7 @@ class LivePlot(Plot):
 
     def update(self, rel_mouse, events):
         """
-        Updates the plot, specifically the range
+        Updates the plot
 
         :param rel_mouse: relative mouse position (unused)
         :param events: Pygame event list (unused)
@@ -259,10 +258,6 @@ class LivePlot(Plot):
 
         self.set_range((xmin, xmax), (ymin, ymax))
 
-    def render(self):
-        """
-        Draw the plot
-        """
         self.clear()
         self.plot(self.buffer, self.style)
-        return super().render()
+        super().update(rel_mouse, events)

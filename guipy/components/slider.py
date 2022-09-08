@@ -72,3 +72,5 @@ class Slider(Component):
             new_val = (rel_mouse[0] - self.r) / (self.width - 2 * self.r)
 
             self.val = clip(new_val, 0, 1)
+
+        self._draw()

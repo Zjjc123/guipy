@@ -34,9 +34,9 @@ class Dropdown(Component):
 
     def set_callback(self, cb):
         """
-        Set the function to be run when button is released
+        Set the callback to be run when a new option is selected
 
-        :param func: Function with signature (button:Button)
+        :param cb: Callback function
         """
         self.cb = cb
         return self
@@ -100,9 +100,6 @@ class Dropdown(Component):
                 2,
             )
         pygame.draw.rect(self.root, BLACK, self.root.get_rect(), 1)
-
-    def render(self):
-        return self.root
 
     def add(self, *options):
         self.options += options

@@ -60,9 +60,9 @@ class Switch(Component):
         pygame.draw.rect(surf, GREY, rect, 0, corner)
         pygame.draw.rect(surf, BLACK, rect, 1, corner)
 
-    def render(self):
+    def get_surf(self):
         """
-        Draws the switch dependant on the state
+        Gets the component's surface
         """
         if self.state:
             return self.on_surf

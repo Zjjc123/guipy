@@ -15,22 +15,17 @@ class Component:
         All the drawing
         """
 
-    def render(self):
-        """
-        Makes sure the root is ready to be used.
-
-        :return: Surface
-        """
-        self._draw()
+    def get_surf(self):
         return self.root
+
+    def _collide(self, rel_mouse):
+        return 0 <= rel_mouse[0] < self.width and 0 <= rel_mouse[1] < self.height
 
     def update(self, rel_mouse, events):
         """
-        Update the component. Should not draw anything, just change state.
+        Update the component. Usually calls
 
         :param rel_mouse: Mouse position relative to the component
         :param events: Pygame event list
         """
-
-    def _collide(self, rel_mouse):
-        return 0 <= rel_mouse[0] < self.width and 0 <= rel_mouse[1] < self.height
+        self._draw()

@@ -22,7 +22,7 @@ class Textbox(Component):
             self.font = font
 
         self.width = width
-        self.height = font.get_height() + 6
+        self.height = font.get_height() + 4
         self.root = pygame.Surface((self.width, self.height))
 
         self.text = ""
@@ -33,11 +33,9 @@ class Textbox(Component):
 
     def set_func(self, func):
         """
-        Set the function to be run when text is entered
+        Set the callback to be run when the textbox is unselected, or enter is pressed
 
-        :param func: Function with signature (textbox:Textbox)
-
-        :return: self
+        :param cb: Callback function
         """
         self.func = func
         return self
@@ -48,16 +46,16 @@ class Textbox(Component):
         """
         self.root.fill(WHITE)
 
-        if self.active:
-            pygame.draw.rect(self.root, (0, 0, 0), self.root.get_rect(), width=2)
-        else:
-            pygame.draw.rect(self.root, (0, 0, 0), self.root.get_rect(), width=1)
-
         if self.text:
             text = self.font.render(self.text, True, BLACK)
         else:
             text = self.font.render(self.default, True, LIGHT_GREY)
-        self.root.blit(text, (4, 3))
+        self.root.blit(text, (4, 1))
+
+        if self.active:
+            pygame.draw.rect(self.root, (0, 0, 0), self.root.get_rect(), width=2)
+        else:
+            pygame.draw.rect(self.root, (0, 0, 0), self.root.get_rect(), width=1)
 
     def update(self, rel_mouse, events):
         """
@@ -90,3 +88,5 @@ class Textbox(Component):
                     self.text = self.text[:-1]
                 else:  # add character
                     self.text += event.unicode
+
+        self._draw()

@@ -35,9 +35,8 @@ class GUIManager:
 
         :param root: the surface these components should be drawn on
         """
-        for component in self.components:
-            root.blit(component[0].render(), component[1])
 
         for component in self.components:
             rel_mouse = sub_vector(mouse_pos, component[1])
             component[0].update(rel_mouse, events)
+            root.blit(component[0].get_surf(), component[1])

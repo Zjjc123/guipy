@@ -16,7 +16,6 @@ class Button(Component):
         :param height: button height in pixels, defaults to fit text
         :param font: pygame Font object to use
         :param text: text to display on the button
-        :param func: function to run when button is released
         """
         if font == None:
             self.font = get_default_font()
@@ -48,9 +47,9 @@ class Button(Component):
 
     def set_callback(self, cb):
         """
-        Set the function to be run when button is released
+        Set the callback to be run when the button is released
 
-        :param func: Function with signature (button:Button)
+        :param cb: Callback function
         """
         self.cb = cb
         return self
@@ -83,11 +82,10 @@ class Button(Component):
         self._draw()
         return self
 
-    def render(self):
+    def get_surf(self):
         """
-        Renders the button
+        Get the button's surface
         """
-
         if self.pressed:
             return self.on_surf
         else:
