@@ -50,6 +50,10 @@ def clip(value, min1, max1):
     return max(min1, min(max1, value))
 
 
+def float_format(n, exponent):
+    return str(n) if exponent < 0 else str(int(n))
+
+
 WHITE = (255, 255, 255)
 """
 Preset for the color White
