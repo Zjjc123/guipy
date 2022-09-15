@@ -21,8 +21,8 @@ poetry add guipylib
 
 
 ```python
-import sys
 import colorsys
+import pygame
 
 from guipy.components.slider import Slider
 from guipy.manager import GUIManager
@@ -45,11 +45,12 @@ man.add(mySlider2, (0, 75))
 man.add(mySlider3, (0, 125))
 man.add(mySlider4, (0, 175))
 
-while True:
+running = True
+while running:
     events = pygame.event.get()
     for event in events:
         if event.type == pygame.QUIT:
-            sys.exit()
+            running = False
 
     root.fill(DARK_GREY)
 
