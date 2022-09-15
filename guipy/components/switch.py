@@ -31,6 +31,8 @@ class Switch(Component):
         Sets the function to run when the switch is changed
 
         :param cb: Callback function
+
+        :return: self
         """
         self.cb = cb
         return self
@@ -63,6 +65,8 @@ class Switch(Component):
     def get_surf(self):
         """
         Gets the component's surface
+
+        :return: Surface
         """
         if self.state:
             return self.on_surf

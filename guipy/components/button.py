@@ -42,6 +42,8 @@ class Button(Component):
     def get_val(self):
         """
         Get current state
+
+        :return: State as a boolean
         """
         return self.pressed
 
@@ -50,6 +52,8 @@ class Button(Component):
         Set the callback to be run when the button is released
 
         :param cb: Callback function
+
+        :return: self
         """
         self.cb = cb
         return self
@@ -77,6 +81,8 @@ class Button(Component):
         Sets the text on the button and redraws the surface
 
         :param text:
+
+        :return: self
         """
         self.text = text
         self._draw()
@@ -85,6 +91,8 @@ class Button(Component):
     def get_surf(self):
         """
         Get the button's surface
+
+        :return: Surface
         """
         if self.pressed:
             return self.on_surf

@@ -12,7 +12,7 @@ class Textbox(Component):
         """
         Textbox init
 
-        :param width: Width of the textbox
+        :param width: Width of the textbox (height is defined by font)
         :param font: Pygame Font object to be used
         :param default_text: Text to be shown when textbox is empty
         """
@@ -36,6 +36,8 @@ class Textbox(Component):
         Set the callback to be run when the textbox is unselected, or enter is pressed
 
         :param cb: Callback function
+
+        :return: self
         """
         self.func = func
         return self

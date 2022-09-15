@@ -37,6 +37,8 @@ class Dropdown(Component):
         Set the callback to be run when a new option is selected
 
         :param cb: Callback function
+
+        :return: self
         """
         self.cb = cb
         return self
@@ -102,6 +104,13 @@ class Dropdown(Component):
         pygame.draw.rect(self.root, BLACK, self.root.get_rect(), 1)
 
     def add(self, *options):
+        """
+        Add options to the menu
+
+        :param *options: Any number of objects with a string representation
+
+        :return: self
+        """
         self.options += options
         return self
 

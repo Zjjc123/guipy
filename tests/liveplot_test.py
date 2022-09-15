@@ -19,7 +19,6 @@ winH = 720
 root = pygame.display.set_mode((winW, winH))
 
 myPlot1 = LivePlot(height=winH, width=winW)
-myPlot1.xaxis_spacer = 0
 
 man = GUIManager()
 man.add(myPlot1, (0, 0))

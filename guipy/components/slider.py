@@ -51,6 +51,7 @@ class Slider(Component):
         Updates slider logic
 
         :param rel_mouse: relative mouse position based on slider position
+        :param events: Pygame event list
         """
         on_click = False
         on_release = False
