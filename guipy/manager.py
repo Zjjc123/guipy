@@ -1,3 +1,6 @@
+from guipy.utils import *
+
+
 class GUIManager:
     """
     GUI Manager
@@ -22,24 +25,18 @@ class GUIManager:
         """
         self.components.append((component, pos))
 
-    def update(self, mouse_pos, events):
+    def update(self, mouse_pos, events, root):
         """
-        Update all components in the manager
+        Update all components in the manager, and render onto root
 
         :param mouse_pos: Mouse position used to update the components so components understand the relative location
         :param events: pygame events used to update the components
 
-        """
-        for component in self.components:
-            rel_mouse = tuple(i[0] - i[1] for i in zip(mouse_pos, component[1]))
-            component[0].update(rel_mouse, events)
-
-    def draw(self, root):
-        """
-        Render all components unto a surface
 
         :param root: the surface these components should be drawn on
         """
+
         for component in self.components:
-            component[0].draw()
+            rel_mouse = sub_vector(mouse_pos, component[1])
+            component[0].update(rel_mouse, events)
             root.blit(component[0].get_surf(), component[1])
