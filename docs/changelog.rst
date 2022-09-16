@@ -2,7 +2,26 @@
 Changelog
 =========
 
-Release 0.2.0 (In Development)
+Release 0.3.0
+==============================
+
+Dependencies
+------------
+
+Features added
+--------------
+
+- `#23 <https://github.com/Zjjc123/guipy/pull/23>`_ Adding more components
+    - **Switch**: A switch with two states
+    - **Button**: A button that can display text and execute a callback when pressed
+    - **Dropdown**: A dropdown menu that supports any object (in menu.py, other types of menus can be put here)
+    - **LivePlot**: An extension of Plot. Displays a timestamped data stream and changes the y range dynamically.
+
+Bugs fixed
+----------
+
+
+Release 0.2.0
 ==============================
 
 Dependencies
