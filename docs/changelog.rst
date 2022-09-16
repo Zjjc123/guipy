@@ -2,6 +2,20 @@
 Changelog
 =========
 
+Release 0.3.1
+==============================
+
+Dependencies
+------------
+
+Features added
+--------------
+
+- `#29 <https://github.com/Zjjc123/guipy/pull/29>`_ Allow user to import all components with ``from guipy.components import *``
+
+Bugs fixed
+----------
+
 Release 0.3.0
 ==============================
 Made changes to the manager and the component base class. Component._draw() should contain most of the drawing that a component needs. Components.root surface is no longer standard in components, as Switch and Button have two static surfaces. Component.update() is now responsible for readying surfaces. In a similar fashion, GUIManager.update() now updates and blits components.
