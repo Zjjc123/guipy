@@ -13,6 +13,16 @@ jobs:
         run: |
           pip install poetry
           poetry install
+      
+      - name: Get Previous Tag
+        id: get_tag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 0.0.0
+
+      - name: Update Config Version
+        run: |
+          sed -i "s/0.0.0/${{ steps.get_tag.outputs.tag }}/" ./docs/conf.py
 
       - name: Sphinx Build
         run: |
