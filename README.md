@@ -18,57 +18,51 @@ or with poetry
 poetry add guipylib
 ```
 
-## Example
+## Components
 
 ### Button
 
 <p align="center">
-<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/button.gif?raw=true
-" width="600" />
+<img alt="Button" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/button.gif" width="200" />
 </p>
 
 ### Dropdown
 
 <p align="center">
-<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/dropdown.gif?raw=true
-" width="600" />
+<img alt="Dropdown" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/dropdown.gif" width="500" />
 </p>
 
 ### Live Plot
 
 <p align="center">
-<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/live_plot.gif?raw=true
-" width="600" />
+<img alt="Live Plot" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/live_plot.gif" width="600" />
 </p>
 
 ### Plot
 
 <p align="center">
-<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/plot.gif?raw=true
-" width="600" />
+<img alt="Plot" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/plot.gif" width="600" />
 </p>
 
 ### Slider
 
 <p align="center">
-<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/slider.gif?raw=true
-" width="600" />
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/slider.gif" width="600" />
 </p>
 
 ### Switch
 
 <p align="center">
-<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/switch.gif?raw=true
-" width="600" />
+<img alt="Switch" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/switch.gif" width="500" />
 </p>
 
 ### Textbox
 
 <p align="center">
-<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/textbox.gif?raw=true
-" width="600" />
+<img alt="Textbox" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/textbox.gif" width="600" />
 </p>
 
+## Example
 ```python
 import colorsys
 import pygame
