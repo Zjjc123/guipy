@@ -32,7 +32,7 @@ jobs:
 
       - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ (github.event_name == 'push' || github.event_name == 'release') && github.ref == 'refs/heads/main' }}
+        if: (github.event_name == 'push' || && github.ref == 'refs/heads/main') || (github.event_name == 'release' && github.event.action == 'created')
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
