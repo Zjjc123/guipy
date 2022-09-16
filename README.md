@@ -1,4 +1,5 @@
 # Guipy
+
 ![Python](https://img.shields.io/badge/python-3-blue.svg?v=1)
 ![Version](https://img.shields.io/pypi/v/guipylib.svg?v=1)
 ![License](https://img.shields.io/pypi/l/guipylib.svg?v=1)
@@ -6,19 +7,67 @@
 Pygame UI Library built by Casey (@caseyhackerman) and Jason
 
 ## Installation
+
 ```
 pip install guipylib
 ```
+
 or with poetry
+
 ```
 poetry add guipylib
 ```
 
 ## Example
+
+### Button
+
 <p align="center">
-<img alt="Slider" src="./docs/imgs/slider.gif" width="600" />
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/button.gif?raw=true
+" width="600" />
 </p>
 
+### Dropdown
+
+<p align="center">
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/dropdown.gif?raw=true
+" width="600" />
+</p>
+
+### Live Plot
+
+<p align="center">
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/live_plot.gif?raw=true
+" width="600" />
+</p>
+
+### Plot
+
+<p align="center">
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/plot.gif?raw=true
+" width="600" />
+</p>
+
+### Slider
+
+<p align="center">
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/slider.gif?raw=true
+" width="600" />
+</p>
+
+### Switch
+
+<p align="center">
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/switch.gif?raw=true
+" width="600" />
+</p>
+
+### Textbox
+
+<p align="center">
+<img alt="Slider" src="https://github.com/Zjjc123/guipy/blob/main/docs/imgs/textbox.gif?raw=true
+" width="600" />
+</p>
 
 ```python
 import colorsys
@@ -68,4 +117,5 @@ while running:
 ```
 
 ## Documentation
+
 Check out some helpful guides and API references [here](https://zjjc123.github.io/guipy/)
