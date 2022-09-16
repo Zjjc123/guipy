@@ -20,9 +20,9 @@ jobs:
         with:
           fallback: 0.0.0
 
-      - name: Update Conf Versino
+      - name: Update Config Version
         run: |
-          sed -i "s/0.0.0/${{ steps.get_tag.outputs.tag }}" ./docs/conf.py
+          sed -i "s/0.0.0/${{ steps.get_tag.outputs.tag }}/" ./docs/conf.py
 
       - name: Sphinx Build
         run: |
