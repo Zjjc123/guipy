@@ -63,9 +63,11 @@ poetry add guipylib
 </p>
 
 ## Example
+
 ```python
-import colorsys
 import pygame
+
+import colorsys
 
 from guipy.components.slider import Slider
 from guipy.manager import GUIManager
