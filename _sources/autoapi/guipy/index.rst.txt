@@ -1,0 +1,25 @@
+:py:mod:`guipy`
+===============
+
+.. py:module:: guipy
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   components/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   manager/index.rst
+   utils/index.rst
+
+

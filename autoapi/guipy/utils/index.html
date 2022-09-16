@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>guipy.utils &mdash; Guipy 0.3.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Changelog" href="../../../changelog.html" />
+    <link rel="prev" title="guipy.manager" href="../manager/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Guipy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/starting.html">Starting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guipy</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guipy.manager</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guipy.utils</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Guipy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guipy</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">guipy.utils</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/guipy/utils/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-guipy.utils">
+<span id="guipy-utils"></span><h1><a class="reference internal" href="#module-guipy.utils" title="guipy.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guipy.utils</span></code></a><a class="headerlink" href="#module-guipy.utils" title="Permalink to this heading"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.add_vector" title="guipy.utils.add_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_vector</span></code></a>(a, b)</p></td>
+<td><p>Adds two vectors (a+b)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.sub_vector" title="guipy.utils.sub_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sub_vector</span></code></a>(a, b)</p></td>
+<td><p>Subtracts two vectors (a-b)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.translate" title="guipy.utils.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate</span></code></a>(value, min1, max1, min2, max2)</p></td>
+<td><p>Maps one value from one range to another range</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.get_default_font" title="guipy.utils.get_default_font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_default_font</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.clip" title="guipy.utils.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clip</span></code></a>(value, min1, max1)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.float_format" title="guipy.utils.float_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float_format</span></code></a>(n, exponent)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.WHITE" title="guipy.utils.WHITE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WHITE</span></code></a></p></td>
+<td><p>Preset for the color White</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.RED" title="guipy.utils.RED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RED</span></code></a></p></td>
+<td><p>Preset for the color Red</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.GREEN" title="guipy.utils.GREEN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GREEN</span></code></a></p></td>
+<td><p>Preset for the color Green</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.BLUE" title="guipy.utils.BLUE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BLUE</span></code></a></p></td>
+<td><p>Preset for the color Blue</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.BLACK" title="guipy.utils.BLACK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BLACK</span></code></a></p></td>
+<td><p>Preset for the color Black</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.LIGHT_GREY" title="guipy.utils.LIGHT_GREY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LIGHT_GREY</span></code></a></p></td>
+<td><p>Preset for the color Light Grey</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.GREY" title="guipy.utils.GREY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GREY</span></code></a></p></td>
+<td><p>Preset for the color Grey</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.DARK_GREY" title="guipy.utils.DARK_GREY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DARK_GREY</span></code></a></p></td>
+<td><p>Preset for the color Dark Grey</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#guipy.utils.ORANGE" title="guipy.utils.ORANGE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ORANGE</span></code></a></p></td>
+<td><p>Preset for the color Orange</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#guipy.utils.TRANSPARENT" title="guipy.utils.TRANSPARENT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TRANSPARENT</span></code></a></p></td>
+<td><p>Preset for transparent (for alpha surfaces)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="guipy.utils.add_vector">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">add_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#guipy.utils.add_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Adds two vectors (a+b)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – </p></li>
+<li><p><strong>b</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="guipy.utils.sub_vector">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">sub_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#guipy.utils.sub_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Subtracts two vectors (a-b)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – </p></li>
+<li><p><strong>b</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="guipy.utils.translate">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#guipy.utils.translate" title="Permalink to this definition"></a></dt>
+<dd><p>Maps one value from one range to another range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – Value to be mapped</p></li>
+<li><p><strong>min1</strong> – Min of range 1</p></li>
+<li><p><strong>max1</strong> – Max of range 1</p></li>
+<li><p><strong>min2</strong> – Min of range 2</p></li>
+<li><p><strong>max2</strong> – Max of range 2</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="guipy.utils.get_default_font">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">get_default_font</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#guipy.utils.get_default_font" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="guipy.utils.clip">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#guipy.utils.clip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="guipy.utils.float_format">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">float_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#guipy.utils.float_format" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.WHITE">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[255,</span> <span class="pre">255,</span> <span class="pre">255]</span></em><a class="headerlink" href="#guipy.utils.WHITE" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color White</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.RED">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[255,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#guipy.utils.RED" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Red</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.GREEN">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">255,</span> <span class="pre">0]</span></em><a class="headerlink" href="#guipy.utils.GREEN" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Green</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.BLUE">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">255]</span></em><a class="headerlink" href="#guipy.utils.BLUE" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Blue</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.BLACK">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#guipy.utils.BLACK" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Black</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.LIGHT_GREY">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">LIGHT_GREY</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[230,</span> <span class="pre">230,</span> <span class="pre">230]</span></em><a class="headerlink" href="#guipy.utils.LIGHT_GREY" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Light Grey</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.GREY">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">GREY</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[200,</span> <span class="pre">200,</span> <span class="pre">200]</span></em><a class="headerlink" href="#guipy.utils.GREY" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Grey</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.DARK_GREY">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">DARK_GREY</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[100,</span> <span class="pre">100,</span> <span class="pre">100]</span></em><a class="headerlink" href="#guipy.utils.DARK_GREY" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Dark Grey</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.ORANGE">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">ORANGE</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[255,</span> <span class="pre">100,</span> <span class="pre">0]</span></em><a class="headerlink" href="#guipy.utils.ORANGE" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for the color Orange</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="guipy.utils.TRANSPARENT">
+<span class="sig-prename descclassname"><span class="pre">guipy.utils.</span></span><span class="sig-name descname"><span class="pre">TRANSPARENT</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#guipy.utils.TRANSPARENT" title="Permalink to this definition"></a></dt>
+<dd><p>Preset for transparent (for alpha surfaces)</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../manager/index.html" class="btn btn-neutral float-left" title="guipy.manager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Casey Culbertson, Jason Zhang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

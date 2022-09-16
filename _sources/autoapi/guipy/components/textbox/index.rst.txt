@@ -1,0 +1,43 @@
+:py:mod:`guipy.components.textbox`
+==================================
+
+.. py:module:: guipy.components.textbox
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components.textbox.Textbox
+
+
+
+
+.. py:class:: Textbox(width, font=None, default_text='Type here...')
+
+   Bases: :py:obj:`guipy.components._component.Component`
+
+   Textbox component for text input
+
+   .. py:method:: set_func(func)
+
+      Set the callback to be run when the textbox is unselected, or enter is pressed
+
+      :param cb: Callback function
+
+      :return: self
+
+
+   .. py:method:: update(rel_mouse, events)
+
+      Update the textbox
+
+      :param rel_mouse: Relative mouse position
+      :param events: Pygame Event list (used to read keypresses)
+
+
+

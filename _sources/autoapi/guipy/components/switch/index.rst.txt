@@ -1,0 +1,50 @@
+:py:mod:`guipy.components.switch`
+=================================
+
+.. py:module:: guipy.components.switch
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components.switch.Switch
+
+
+
+
+.. py:class:: Switch(width, height)
+
+   Bases: :py:obj:`guipy.components._component.Component`
+
+   Switch component
+
+   .. py:method:: set_callback(cb)
+
+      Sets the function to run when the switch is changed
+
+      :param cb: Callback function
+
+      :return: self
+
+
+   .. py:method:: get_surf()
+
+      Gets the component's surface
+
+      :return: Surface
+
+
+   .. py:method:: update(rel_mouse, events)
+
+      Update the switch
+
+      :param rel_mouse: Relative mouse position
+      :param events: Pygame Event list
+
+
+

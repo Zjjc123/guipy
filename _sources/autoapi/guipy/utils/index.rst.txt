@@ -1,0 +1,137 @@
+:py:mod:`guipy.utils`
+=====================
+
+.. py:module:: guipy.utils
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   guipy.utils.add_vector
+   guipy.utils.sub_vector
+   guipy.utils.translate
+   guipy.utils.get_default_font
+   guipy.utils.clip
+   guipy.utils.float_format
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   guipy.utils.WHITE
+   guipy.utils.RED
+   guipy.utils.GREEN
+   guipy.utils.BLUE
+   guipy.utils.BLACK
+   guipy.utils.LIGHT_GREY
+   guipy.utils.GREY
+   guipy.utils.DARK_GREY
+   guipy.utils.ORANGE
+   guipy.utils.TRANSPARENT
+
+
+.. py:function:: add_vector(a, b)
+
+   Adds two vectors (a+b)
+
+   :param a:
+   :param b:
+
+
+.. py:function:: sub_vector(a, b)
+
+   Subtracts two vectors (a-b)
+
+   :param a:
+   :param b:
+
+
+.. py:function:: translate(value, min1, max1, min2, max2)
+
+   Maps one value from one range to another range
+
+   :param value: Value to be mapped
+   :param min1: Min of range 1
+   :param max1: Max of range 1
+   :param min2: Min of range 2
+   :param max2: Max of range 2
+
+
+.. py:function:: get_default_font()
+
+
+.. py:function:: clip(value, min1, max1)
+
+
+.. py:function:: float_format(n, exponent)
+
+
+.. py:data:: WHITE
+   :annotation: = [255, 255, 255]
+
+   Preset for the color White
+
+
+.. py:data:: RED
+   :annotation: = [255, 0, 0]
+
+   Preset for the color Red
+
+
+.. py:data:: GREEN
+   :annotation: = [0, 255, 0]
+
+   Preset for the color Green
+
+
+.. py:data:: BLUE
+   :annotation: = [0, 0, 255]
+
+   Preset for the color Blue
+
+
+.. py:data:: BLACK
+   :annotation: = [0, 0, 0]
+
+   Preset for the color Black
+
+
+.. py:data:: LIGHT_GREY
+   :annotation: = [230, 230, 230]
+
+   Preset for the color Light Grey
+
+
+.. py:data:: GREY
+   :annotation: = [200, 200, 200]
+
+   Preset for the color Grey
+
+
+.. py:data:: DARK_GREY
+   :annotation: = [100, 100, 100]
+
+   Preset for the color Dark Grey
+
+
+.. py:data:: ORANGE
+   :annotation: = [255, 100, 0]
+
+   Preset for the color Orange
+
+
+.. py:data:: TRANSPARENT
+   :annotation: = [0, 0, 0, 0]
+
+   Preset for transparent (for alpha surfaces)
+
+

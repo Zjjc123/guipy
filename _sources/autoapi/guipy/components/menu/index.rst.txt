@@ -1,0 +1,52 @@
+:py:mod:`guipy.components.menu`
+===============================
+
+.. py:module:: guipy.components.menu
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components.menu.Dropdown
+
+
+
+
+.. py:class:: Dropdown(width, font=None)
+
+   Bases: :py:obj:`guipy.components._component.Component`
+
+   Dropdown menu component
+
+   .. py:method:: set_callback(cb)
+
+      Set the callback to be run when a new option is selected
+
+      :param cb: Callback function
+
+      :return: self
+
+
+   .. py:method:: add(*options)
+
+      Add options to the menu
+
+      :param *options: Any number of objects with a string representation
+
+      :return: self
+
+
+   .. py:method:: update(rel_mouse, events)
+
+      Update the dropdown menu
+
+      :param rel_mouse: Relative mouse position
+      :param events: Pygame Event list
+
+
+

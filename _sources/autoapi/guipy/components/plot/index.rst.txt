@@ -1,0 +1,100 @@
+:py:mod:`guipy.components.plot`
+===============================
+
+.. py:module:: guipy.components.plot
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components.plot.Plot
+   guipy.components.plot.LivePlot
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components.plot.line
+
+
+
+.. py:function:: line(surf, points)
+
+   Example/default plot style
+
+   :param surf: Surface to draw to
+   :param points: List of pixel coordinates to draw. ex: [(1,1),(2,3),...]
+
+
+.. py:class:: Plot(width, height, xlabel=None, ylabel=None, xaxis_height=100, yaxis_width=100)
+
+   Bases: :py:obj:`guipy.components._component.Component`
+
+   Plot component. Simple and fast way to display data
+
+   .. py:method:: set_range(xrange, yrange)
+
+      Sets the plot X and Y range
+
+      :param xrange: Tuple of minimum and maximum X values. ex: (0,100)
+      :param yrange: Tuple of minimum and maximum Y values. ex: (0,100)
+
+      :return: self
+
+
+   .. py:method:: plot(data, style=line)
+
+      Plots a list of points. Will not plot is the range is not valid.
+
+      :param data: List of points to be plotted. ex: [(1.0,1.0),(1.2,1.3),...]
+      :param style: Style function to be used. Should have the signature (surf:Surface, points:List[Tuple])
+
+      :return: True is the range is valid
+
+
+   .. py:method:: update(rel_mouse, events)
+
+      Update the plot
+
+      :param rel_mouse: Relative mouse position
+      :param events: Pygame Event list
+
+
+
+.. py:class:: LivePlot(width, height, style=line, glide=10, xlabel='Time', ylabel='Data', time_range=5)
+
+   Bases: :py:obj:`Plot`
+
+   Live plot component. Unlike Plot, this will receive data continouously and add it to a buffer. Data is deleted from the buffer when it falls outside of a specified time range (time_range).     The Y-axis will adjust automatically.
+
+   .. py:method:: add(data)
+
+      Add a single data point to the plot. Removes data that is outside of the time range
+
+      :param data: data to add. ex: (time:float,data:float)
+
+      :return: Number of points removed
+
+
+   .. py:method:: reset()
+
+      Clears the buffer and resets the range
+
+
+   .. py:method:: update(rel_mouse, events)
+
+      Updates the plot
+
+      :param rel_mouse: relative mouse position
+      :param events: Pygame event list
+
+
+

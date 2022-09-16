@@ -1,0 +1,39 @@
+:orphan:
+
+:py:mod:`guipy.components._component`
+=====================================
+
+.. py:module:: guipy.components._component
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components._component.Component
+
+
+
+
+.. py:class:: Component(width, height)
+
+   .. py:method:: get_surf()
+
+      Returns the surface of the component
+
+      :return: Surface
+
+
+   .. py:method:: update(rel_mouse, events)
+
+      Update the component. Gets the surface ready to be used
+
+      :param rel_mouse: Mouse position relative to the component
+      :param events: Pygame event list
+
+
+

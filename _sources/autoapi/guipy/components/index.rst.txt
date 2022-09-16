@@ -1,0 +1,20 @@
+:py:mod:`guipy.components`
+==========================
+
+.. py:module:: guipy.components
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   button/index.rst
+   menu/index.rst
+   plot/index.rst
+   slider/index.rst
+   switch/index.rst
+   textbox/index.rst
+
+

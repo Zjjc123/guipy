@@ -1,0 +1,66 @@
+:py:mod:`guipy.components.button`
+=================================
+
+.. py:module:: guipy.components.button
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components.button.Button
+
+
+
+
+.. py:class:: Button(width=None, height=None, font=None, text='Bruh')
+
+   Bases: :py:obj:`guipy.components._component.Component`
+
+   Button component
+
+   .. py:method:: get_val()
+
+      Get current state
+
+      :return: State as a boolean
+
+
+   .. py:method:: set_callback(cb)
+
+      Set the callback to be run when the button is released
+
+      :param cb: Callback function
+
+      :return: self
+
+
+   .. py:method:: set_text(text)
+
+      Sets the text on the button and redraws the surface
+
+      :param text:
+
+      :return: self
+
+
+   .. py:method:: get_surf()
+
+      Get the button's surface
+
+      :return: Surface
+
+
+   .. py:method:: update(rel_mouse, events)
+
+      Update the button
+
+      :param rel_mouse: Relative mouse position
+      :param events: Pygame Event list
+
+
+

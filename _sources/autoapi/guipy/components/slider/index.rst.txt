@@ -1,0 +1,34 @@
+:py:mod:`guipy.components.slider`
+=================================
+
+.. py:module:: guipy.components.slider
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   guipy.components.slider.Slider
+
+
+
+
+.. py:class:: Slider(width, height, thickness=2, radius=10, initial_val=0)
+
+   Bases: :py:obj:`guipy.components._component.Component`
+
+   Slider component for user interactions with drag and value setting
+
+   .. py:method:: update(rel_mouse, events)
+
+      Updates slider logic
+
+      :param rel_mouse: relative mouse position based on slider position
+      :param events: Pygame event list
+
+
+
