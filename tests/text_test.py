@@ -11,9 +11,11 @@ sys.path.insert(0, parentdir)
 from guipy.manager import GUIManager
 from guipy.components.text import Text
 
+
 def f(x):
     print(x.text)
-    x.set_text(x.text+' beep')
+    x.set_text(x.text + " beep")
+
 
 font1 = pygame.font.SysFont("Microsoft Sans Serif", 20)
 font2 = pygame.font.SysFont("Comic Sans MS", 20)

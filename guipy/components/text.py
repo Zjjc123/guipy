@@ -31,9 +31,10 @@ class Text(Component):
         """
         self.func = func
         return self
-    
+
     def set_text(self, text, color=None):
-        if color: self.color = color
+        if color:
+            self.color = color
         self.text = text
         self._draw()
         self.width = self.root.get_width()
@@ -44,7 +45,7 @@ class Text(Component):
         Draws the text
         """
         self.root = self.font.render(self.text, True, self.color)
-        
+
     def update(self, rel_mouse, events):
         """
         Update the text
@@ -54,5 +55,5 @@ class Text(Component):
         """
         for event in events:
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if (self._collide(rel_mouse)):
+                if self._collide(rel_mouse):
                     self.func(self)
