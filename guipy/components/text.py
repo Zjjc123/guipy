@@ -41,13 +41,13 @@ class Text(Component):
 
     def _draw(self):
         """
-        Draws the textbox
+        Draws the text
         """
         self.root = self.font.render(self.text, True, self.color)
         
     def update(self, rel_mouse, events):
         """
-        Update the textbox
+        Update the text
 
         :param rel_mouse: Relative mouse position
         :param events: Pygame Event list (used to read keypresses)
