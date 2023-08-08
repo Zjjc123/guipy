@@ -82,7 +82,6 @@ class Switch(Component):
                 on_click = True
 
         if on_click and self._collide(rel_mouse):
-
             self.state = not self.state
 
             if self.cb != None:
